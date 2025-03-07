@@ -15,14 +15,14 @@ sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bak
 # sudo truncate -s 0 /etc/haproxy/haproxy.cfg
 
 # Check if the configuration for frontend and backend exists
-if ! grep -q "frontend jmuhire-frontend" /etc/haproxy/haproxy.cfg; then
+if ! grep -q "frontend jmuhire13-frontend" /etc/haproxy/haproxy.cfg; then
     # Add frontend and backend configuration
-    server_config="frontend jmuhire-frontend
+    server_config="frontend jmuhire13-frontend
         bind *:80
         mode http
-        default_backend jmuhire-backend
+        default_backend jmuhire13-backend
 
-    backend elisejulio-backend
+    backend jmuhire13-backend
         balance roundrobin
         server 6310-web-01 44.202.219.108:80 check
         server 6310-web-02 3.91.134.170:80 check"
